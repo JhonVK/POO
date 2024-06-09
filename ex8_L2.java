@@ -1,7 +1,7 @@
 import java.util.Scanner;
 public class ex8_L2{
     public static void main(String[] args){
-        int t=0, temp=0, menor=0;
+        int t=0, menor=0;
         Scanner ler= new Scanner(System.in);
         System.out.println("Digite o tamanho do vetor: ");
         t=ler.nextInt();
