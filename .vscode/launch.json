@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "test",
+      "request": "launch",
+      "mainClass": "test",
+      "projectName": "POO_c3adeeb0"
+    },
+    {
+      "type": "java",
       "name": "SistemaBanco",
       "request": "launch",
       "mainClass": "SistemaBanco",
