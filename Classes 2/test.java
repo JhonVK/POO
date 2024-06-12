@@ -10,7 +10,6 @@ class test{
     Conta jose = bb.criaConta("Jose");
     System.out.println(jose.pegaNome());
     System.out.println(jose.pegaCodigo());
-    System.out.println(jose.pegaSaldo());
     jose.aplica(100.0F);
     jose.retira(30.5F);
     System.out.println(jose.pegaSaldo());
