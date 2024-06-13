@@ -3,6 +3,20 @@
   "configurations": [
     {
       "type": "java",
+      "name": "App",
+      "request": "launch",
+      "mainClass": "App",
+      "projectName": "POO_c3adeeb0"
+    },
+    {
+      "type": "java",
+      "name": "testeFuncionario",
+      "request": "launch",
+      "mainClass": "testeFuncionario",
+      "projectName": "POO_c3adeeb0"
+    },
+    {
+      "type": "java",
       "name": "ex8_L2",
       "request": "launch",
       "mainClass": "ex8_L2",
