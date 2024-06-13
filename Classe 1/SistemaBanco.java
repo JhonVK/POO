@@ -1,11 +1,11 @@
 public class SistemaBanco {
     public static void main(String[] args) {
     boolean consegui;
-    Conta minhaConta;
-    Conta minhaConta2;
+    Conta1 minhaConta;
+    Conta1 minhaConta2;
 
-    minhaConta = new Conta();
-    minhaConta2 = new Conta();
+    minhaConta = new Conta1();
+    minhaConta2 = new Conta1();
 
     minhaConta.dono = "Maria";
     minhaConta2.dono = "Pedro";

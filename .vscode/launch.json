@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "ex8_L2",
+      "request": "launch",
+      "mainClass": "ex8_L2",
+      "projectName": "POO_c3adeeb0"
+    },
+    {
+      "type": "java",
       "name": "test",
       "request": "launch",
       "mainClass": "test",

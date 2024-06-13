@@ -1,4 +1,4 @@
-class test{
+class Test{
     public static void main(String[] args){
     Banco itau = new Banco("Itau");
     Conta b= itau.criaConta("Maria");

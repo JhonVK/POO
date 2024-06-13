@@ -1,9 +1,9 @@
-public class Conta {
+public class Conta1 {
     int numero;
     String dono;
     double saldo;
     double limite;
-    Conta(){
+    Conta1(){
         this.numero=122;
         this.dono="x";
         this.saldo=0;
@@ -37,7 +37,7 @@ double saldo(){
     return this.saldo;
 }
 
-void transferePara(Conta destino, int valor){
+void transferePara(Conta1 destino, int valor){
     if(this.limite<valor){
         System.out.println("Limite insuficiente para transferencia.");
         
