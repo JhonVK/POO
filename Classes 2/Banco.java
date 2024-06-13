@@ -5,11 +5,11 @@ class Banco{
     int codigo,prox_conta,ind_array;
     Conta[] contas;
     Banco(String n){
-    this.nome = n;
-    this.codigo = prox_banco++;
-    this.prox_conta = 1;
-    this.contas=new Conta[MAX_CONTAS];
-    this.ind_array = 0;
+        this.nome = n;
+        this.codigo = prox_banco++;
+        this.prox_conta = 1;
+        this.contas=new Conta[MAX_CONTAS];
+        this.ind_array = 0;
    }
    int pegaCodB(){
     return this.codigo;

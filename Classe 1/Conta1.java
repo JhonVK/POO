@@ -3,12 +3,12 @@ public class Conta1 {
     String dono;
     double saldo;
     double limite;
+    
     Conta1(){
         this.numero=122;
         this.dono="x";
         this.saldo=0;
         this.limite=0;
-
     }
 
 void limiteOperacoes(int lim){

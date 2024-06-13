@@ -4,10 +4,10 @@ class Conta{
     String nomeBanco;
     float saldo;
     Conta(String n, int c, String b){
-    this.nome = n;
-    this.codigo = c;
-    this.nomeBanco = b;
-    this.saldo = 0F;
+        this.nome = n;
+        this.codigo = c;
+        this.nomeBanco = b;
+        this.saldo = 0F;
    }
    String pegaBanco(){
     return this.nomeBanco;
