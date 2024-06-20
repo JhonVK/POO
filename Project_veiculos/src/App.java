@@ -31,8 +31,8 @@ public class App {
                             for (int i = 0; i < listaVeiculos.size(); i++) {
                                  veiculos elem = listaVeiculos.get(i);
                                   elem.getAcelerar();
-                                  elem.getModelo();
-                                  elem.getCor();
+                                  System.out.println(elem.getModelo());
+                                  System.out.println(elem.getCor());
                             
                            }
 
