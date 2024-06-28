@@ -8,9 +8,6 @@ public class usuario implements autenticavel {
         this.senha=senh;
         this.nome=nom;
     }
-
-
-
     @Override
     public boolean autenticar(String usuario, int senha) {
         if(this.nome==usuario && this.senha==senha){
@@ -19,7 +16,6 @@ public class usuario implements autenticavel {
             return false;
         }
     }
-
     @Override
     public boolean redefinirSenha(String usuario, int novaSenha) {
        this.senha=novaSenha;
