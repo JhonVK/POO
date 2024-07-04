@@ -15,6 +15,7 @@ public class Funcionario {
     public Double getSalaryliquid(){
         return (this.salary-this.tax);
     }
+    
     public void IncreaseSalary(Double percentage){
         this.salary=this.salary+this.salary*percentage/100;
     }
