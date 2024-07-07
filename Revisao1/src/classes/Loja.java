@@ -25,6 +25,12 @@ public class Loja {
     public String getNome(){
         return this.nomeLoja;
     }
+    public void listar(){
+        for(int i=0; i<lista.size(); i++){
+            Animal animal5=lista.get(i);
+            System.out.println(animal5.getNome());
+        }
+    }
 
 
 
