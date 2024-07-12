@@ -10,7 +10,6 @@ public class Loja {
         this.max=10;
         this.lista = new ArrayList<>(max);
     }
-
     public void inserir(Animal animalx){
         if(lista.size()<10){
             lista.add(animalx);
