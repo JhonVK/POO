@@ -13,6 +13,6 @@ public class Disciplina {
         this.maxAlunos=max;
         this.nomeDisciplina=nome;
         this.alunos= new ArrayList<>(max);
-
     }
+    
 }
