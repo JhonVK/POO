@@ -2,6 +2,7 @@ import classes.empresa;
 import classes.funcionario;
 import classes.gerente;
 import classes.desenvolvedor;
+import javax.swing.JOptionPane;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -17,5 +18,7 @@ public class App {
         empresa1.adicionarFuncionario(desenvolvedor2);
         empresa.mostrarFuncionario();
         empresa.todosTrabalham();
+    
+
     }
 }

@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "JOptionPane",
+      "request": "launch",
+      "mainClass": "JOptionPane",
+      "projectName": "POO_c3adeeb0"
+    },
+    {
+      "type": "java",
       "name": "App",
       "request": "launch",
       "mainClass": "App",
