@@ -16,6 +16,7 @@ public class MainFrameApp extends JFrame implements ActionListener {
     public MainFrameApp() {
         super("Dungeon Fighter");
         panel.setLayout(null);
+        panel.setBackground(Color.LIGHT_GRAY);
         ImageIcon iconeJogo= new ImageIcon("lib\\dungeonhunter.png");
         
         JLabel imagem= new JLabel(iconeJogo);
@@ -24,7 +25,7 @@ public class MainFrameApp extends JFrame implements ActionListener {
 
         JLabel texto= new JLabel("Escolha Seu Herói: ");
         texto.setBounds(210, 250, 300, 100);
-        texto.setFont(new Font("Serif", Font.ITALIC, 30 ));
+        texto.setFont(new Font("Serif", Font.ROMAN_BASELINE, 30 ));
         panel.add(texto);
         
         addBotoes();
