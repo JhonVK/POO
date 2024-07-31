@@ -45,6 +45,7 @@ public class MainFrameApp extends JFrame implements ActionListener {
         textobotao1.setFont(new Font("Serif", Font.TYPE1_FONT, 15 ));
         panel.add(textobotao1);
         botao1= new JButton(guerreiro);
+        botao1.setBackground(Color.WHITE);
         botao1.setBounds(30,500,200,120);
         panel.add(botao1);
         
@@ -53,6 +54,7 @@ public class MainFrameApp extends JFrame implements ActionListener {
         textobotao2.setFont(new Font("Serif", Font.TYPE1_FONT, 15 ));
         panel.add(textobotao2);
         botao2= new JButton(paladino);
+        botao2.setBackground(Color.WHITE);
         botao2.setBounds(235,500,200,120);
         panel.add(botao2);
 
@@ -61,6 +63,7 @@ public class MainFrameApp extends JFrame implements ActionListener {
         textobotao3.setFont(new Font("Serif", Font.TYPE1_FONT, 15 ));
         panel.add(textobotao3);
         botao3= new JButton(barbaro);
+        botao3.setBackground(Color.WHITE);
         botao3.setBounds(440,500,200,120);
         panel.add(botao3);
 
@@ -73,10 +76,10 @@ public class MainFrameApp extends JFrame implements ActionListener {
             Personagem soldado= new Soldado(10, 4, 4, "zz");
             new TelaAtributos(soldado);
         } else if (evento.getSource() == botao2) {
-            Personagem paladino= new Paladino(10, 4, 4, "zz");
+            Personagem paladino= new Paladino(4, 6, 8, "zz");
             new TelaAtributos(paladino);
         } else if (evento.getSource() == botao3) {
-            Personagem barbaro= new Barbaro(10, 4, 4, "zz");
+            Personagem barbaro= new Barbaro(7, 7, 4, "zz");
             new TelaAtributos(barbaro);
         }
     }
