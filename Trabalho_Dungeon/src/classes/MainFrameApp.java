@@ -16,7 +16,6 @@ public class MainFrameApp extends JFrame implements ActionListener {
     public MainFrameApp() {
         super("Dungeon Fighter");
         panel.setLayout(null);
-        panel.setBackground(Color.LIGHT_GRAY);
         ImageIcon iconeJogo= new ImageIcon("lib\\dungeonhunter.png");
         
         JLabel imagem= new JLabel(iconeJogo);
@@ -71,11 +70,14 @@ public class MainFrameApp extends JFrame implements ActionListener {
     }
     public void actionPerformed(ActionEvent evento) {
         if (evento.getSource() == botao1) {
-            
+            Personagem soldado= new Soldado(10, 4, 4, "zz");
+            new TelaAtributos(soldado);
         } else if (evento.getSource() == botao2) {
-           
+            Personagem paladino= new Paladino(10, 4, 4, "zz");
+            new TelaAtributos(paladino);
         } else if (evento.getSource() == botao3) {
-     
+            Personagem barbaro= new Barbaro(10, 4, 4, "zz");
+            new TelaAtributos(barbaro);
         }
     }
 }
