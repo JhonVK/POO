@@ -29,13 +29,13 @@ public class SelecaoClasses extends JFrame implements ActionListener {
         texto= new JLabel("Escolha Seu Herói: ");
         texto.setBounds(45, 120, 500, 100);
         texto.setFont(new Font("Serif", Font.TYPE1_FONT, 40 ));
-        texto.setForeground(Color.white);
+        texto.setForeground(Color.RED);
         panel.add(texto);
         
         addBotoes();
 
         tela.add(panel);
-        setSize(700, 700);
+        setSize(650, 700);
         setLocationRelativeTo(null); // Centraliza a janela na tela
         setVisible(true);
     }
@@ -48,24 +48,23 @@ public class SelecaoClasses extends JFrame implements ActionListener {
         textobotao1 = new JLabel("<html>Soldado:<br>+50% de dano<br>Dano 10<br>Saúde 4<br>Defesa 4</html>");
         textobotao1.setBounds(30, 290, 300, 200);
         textobotao1.setFont(new Font("Serif", Font.TYPE1_FONT, 25 ));
-        textobotao1.setForeground(Color.white);
+        textobotao1.setForeground(Color.RED);
         panel.add(textobotao1);
         botao1= new JButton(guerreiro);
-        botao1.setBounds(30,550,200,120);
+        botao1.setBounds(0,550,200,120);
         botao1.setBorderPainted(false);
         botao1.setOpaque(false);
         botao1.setContentAreaFilled(false); 
         botao1.setFocusPainted(false); 
-        botao1.setBackground(Color.WHITE);
         panel.add(botao1);
         
         textobotao2= new JLabel("<html>Paladino:<br>+50% de vida<br>Dano 4<br>Saúde 8<br>Defesa 6</html>");
         textobotao2.setBounds(235, 290, 300, 200);
         textobotao2.setFont(new Font("Serif", Font.TYPE1_FONT, 25 ));
-        textobotao2.setForeground(Color.white);
+        textobotao2.setForeground(Color.RED);
         panel.add(textobotao2);
         botao2= new JButton(paladino);
-        botao2.setBounds(235,550,200,120);
+        botao2.setBounds(200,550,200,120);
         botao2.setBorderPainted(false);
         botao2.setOpaque(false);
         botao2.setContentAreaFilled(false); 
@@ -75,7 +74,7 @@ public class SelecaoClasses extends JFrame implements ActionListener {
         textobotao3= new JLabel("<html>Bárbaro:<br>+50% de Defesa<br>Dano 7<br>Saúde 4<br>DEFESA 7</html>");
         textobotao3.setBounds(440, 290, 300, 200);
         textobotao3.setFont(new Font("Serif", Font.TYPE1_FONT, 25 ));
-        textobotao3.setForeground(Color.white);
+        textobotao3.setForeground(Color.RED);
         panel.add(textobotao3);
         botao3= new JButton(barbaro);
         botao3.setBorderPainted(false);
@@ -83,7 +82,7 @@ public class SelecaoClasses extends JFrame implements ActionListener {
         botao3.setContentAreaFilled(false); 
         botao3.setFocusPainted(false); 
         botao3.setBackground(Color.WHITE);
-        botao3.setBounds(440,550,200,120);
+        botao3.setBounds(405,550,200,120);
         panel.add(botao3);
 
         botao1.addActionListener(this);

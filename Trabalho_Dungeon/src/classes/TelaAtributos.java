@@ -12,7 +12,7 @@ import java.awt.*;
 
 public class TelaAtributos extends JFrame implements ChangeListener {
     private Container tela= getContentPane();
-    private JPanel panel= new JPanel();
+    private JPanel panel;
     private int pontosExtras=7;
 
     JLabel textoPontos, ataqueTexto, defesaTexto, saudeTexto, inicioTexto;
@@ -21,21 +21,26 @@ public class TelaAtributos extends JFrame implements ChangeListener {
     private int ataqueInicial, saudeInicial, defesaInicial;
     public TelaAtributos(Personagem x){
         super("Dungeon Fighter");
+        panel=new FundoPainel("lib\\fundo2.jpg");
         panel.setLayout(null);
         ataqueInicial=x.getAtaque();
         defesaInicial=x.getDefesa();
         saudeInicial=x.getSaude();
         inicioTexto= new JLabel("Destribua os pontos do "+x.getNomeclass()+":");
-        inicioTexto.setBounds(50, 25, 400, 50);
-        inicioTexto.setFont(new Font("Serif", Font.TYPE1_FONT, 20 ));
+        inicioTexto.setForeground(Color.RED);
+        inicioTexto.setBounds(20, 25, 400, 50);
+        inicioTexto.setFont(new Font("Serif", Font.TYPE1_FONT, 25 ));
         tela.add(inicioTexto);
 
         ataqueTexto = new JLabel("Ataque: ");
+        ataqueTexto.setForeground(Color.RED);
         sliderAtaque = new JSlider(0, x.getAtaque(),  x.getAtaque()+pontosExtras, x.getAtaque());
         sliderAtaque.setMajorTickSpacing(1);
         sliderAtaque.setPaintTicks(true);
+        sliderAtaque.setForeground(Color.red);
         sliderAtaque.setPaintLabels(true);
         sliderAtaque.setSnapToTicks(true);
+        sliderAtaque.setOpaque(false);
         sliderAtaque.setBounds(130, 100, 150, 50);
         ataqueTexto.setBounds(80, 100, 50, 50);
         sliderAtaque.addChangeListener(this);
@@ -43,11 +48,14 @@ public class TelaAtributos extends JFrame implements ChangeListener {
         panel.add(sliderAtaque);
 
         defesaTexto = new JLabel("Defesa: ");
+        defesaTexto.setForeground(Color.RED);
         sliderDefesa = new JSlider(0, x.getDefesa(),  x.getDefesa()+pontosExtras, x.getDefesa());
         sliderDefesa.setMajorTickSpacing(1);
         sliderDefesa.setPaintTicks(true);
+        sliderDefesa.setForeground(Color.red);
         sliderDefesa.setPaintLabels(true);
         sliderDefesa.setSnapToTicks(true);
+        sliderDefesa.setOpaque(false);
         sliderDefesa.setBounds(130, 150, 150, 50);
         defesaTexto.setBounds(80, 150, 50, 50);
         sliderDefesa.addChangeListener(this);
@@ -55,11 +63,14 @@ public class TelaAtributos extends JFrame implements ChangeListener {
         panel.add(sliderDefesa);
         
         saudeTexto = new JLabel("Saúde: ");
+        saudeTexto.setForeground(Color.RED);
         sliderSaude = new JSlider(0, x.getSaude(),  x.getSaude()+pontosExtras, x.getSaude()); 
         sliderSaude.setMajorTickSpacing(1);
         sliderSaude.setPaintTicks(true);
+        sliderSaude.setForeground(Color.red);
         sliderSaude.setPaintLabels(true);
         sliderSaude.setSnapToTicks(true);
+        sliderSaude.setOpaque(false);
         sliderSaude.setBounds(130, 200, 150, 50);
         saudeTexto.setBounds(80, 200, 50, 50);
         sliderSaude.addChangeListener(this);
@@ -67,7 +78,9 @@ public class TelaAtributos extends JFrame implements ChangeListener {
         panel.add(sliderSaude);
         
         textoPontos= new JLabel("Pontos sobrando: "+ pontosExtras);
-        textoPontos.setBounds(80, 250, 200, 100);
+        textoPontos.setForeground(Color.RED);
+        textoPontos.setBounds(75, 250, 400, 100);
+        textoPontos.setFont(new Font("zzz", Font.TYPE1_FONT, 25 ));
         panel.add(textoPontos);
 
       

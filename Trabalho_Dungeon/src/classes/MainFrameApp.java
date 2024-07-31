@@ -22,20 +22,20 @@ public class MainFrameApp extends JFrame implements ActionListener {
         panel.setLayout(null);
         
 
-        iconeJogo= new ImageIcon("lib\\logo.png");
+        iconeJogo= new ImageIcon("lib\\logo3.png");
         imagem= new JLabel(iconeJogo);
-        imagem.setBounds(80, 60, 500, 300);
+        imagem.setBounds(160, 0, 350, 320);
         panel.add(imagem);
 
         botao1=new JButton("Jogar");
-        botao1.setForeground(Color.white);
+        botao1.setForeground(Color.RED);
         botao2=new JButton("DEBUG");
-        botao2.setForeground(Color.white);
+        botao2.setForeground(Color.RED);
         botao3=new JButton("Sair");
-        botao3.setForeground(Color.white);
+        botao3.setForeground(Color.RED);
 
      
-        botao1.setBounds(230,350,200,50);
+        botao1.setBounds(230,450,200,50);
         botao1.setFont(new Font("Arial", Font.BOLD, 28));
         botao1.setBorderPainted(false);
         botao1.setOpaque(false);
@@ -44,7 +44,7 @@ public class MainFrameApp extends JFrame implements ActionListener {
         panel.add(botao1);
 
    
-        botao2.setBounds(230,450,200,50);
+        botao2.setBounds(230,500,200,50);
         botao2.setFont(new Font("Arial", Font.BOLD, 28));
         botao2.setBorderPainted(false);
         botao2.setOpaque(false);
