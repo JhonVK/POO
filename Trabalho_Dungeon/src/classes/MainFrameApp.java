@@ -18,7 +18,7 @@ public class MainFrameApp extends JFrame implements ActionListener {
     public MainFrameApp() {
 
         super("Dungeon Fighter");
-        panel = new FundoPainel("lib\\fundo.jpg");
+        panel = new FundoPainel("lib\\fundo2.jpg");
         panel.setLayout(null);
         
 
@@ -28,8 +28,11 @@ public class MainFrameApp extends JFrame implements ActionListener {
         panel.add(imagem);
 
         botao1=new JButton("Jogar");
+        botao1.setForeground(Color.white);
         botao2=new JButton("DEBUG");
+        botao2.setForeground(Color.white);
         botao3=new JButton("Sair");
+        botao3.setForeground(Color.white);
 
      
         botao1.setBounds(230,350,200,50);
