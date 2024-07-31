@@ -11,76 +11,74 @@ import java.awt.event.*;
 
 public class MainFrameApp extends JFrame implements ActionListener {
     private Container tela= getContentPane();
-    private JPanel panel= new JPanel();
+    private JPanel panel;
+    private ImageIcon iconeJogo;
+    private JLabel imagem;
     private JButton botao1, botao2, botao3;
     public MainFrameApp() {
+
         super("Dungeon Fighter");
+        panel = new FundoPainel("lib\\fundo.jpg");
         panel.setLayout(null);
-        ImageIcon iconeJogo= new ImageIcon("lib\\dungeonhunter.png");
         
-        JLabel imagem= new JLabel(iconeJogo);
-        imagem.setBounds(50, 30, 500, 200);
+
+        iconeJogo= new ImageIcon("lib\\logo.png");
+        imagem= new JLabel(iconeJogo);
+        imagem.setBounds(80, 60, 500, 300);
         panel.add(imagem);
 
-        JLabel texto= new JLabel("Escolha Seu Herói: ");
-        texto.setBounds(45, 250, 300, 100);
-        texto.setFont(new Font("Serif", Font.TYPE1_FONT, 30 ));
-        panel.add(texto);
-        
-        addBotoes();
+        botao1=new JButton("Jogar");
+        botao2=new JButton("DEBUG");
+        botao3=new JButton("Sair");
 
-        tela.add(panel);
-        setSize(700, 700);
-        setLocationRelativeTo(null); // Centraliza a janela na tela
-        setVisible(true);
-    }
-    private void addBotoes(){
- 
-        ImageIcon guerreiro= new ImageIcon("lib\\soldado.png");
-        ImageIcon paladino= new ImageIcon("lib\\paladino.png");
-        ImageIcon barbaro= new ImageIcon("lib\\barbaro.png");
-
-        JLabel textobotao1 = new JLabel("<html>Soldado:<br>Habilidade: + 50% de dano<br>Dano 10<br>Saúde 4<br>Defesa 4</html>");
-        textobotao1.setBounds(30, 390, 300, 100);
-        textobotao1.setFont(new Font("Serif", Font.TYPE1_FONT, 15 ));
-        panel.add(textobotao1);
-        botao1= new JButton(guerreiro);
-        botao1.setBackground(Color.WHITE);
-        botao1.setBounds(30,500,200,120);
+     
+        botao1.setBounds(230,350,200,50);
+        botao1.setFont(new Font("Arial", Font.BOLD, 28));
+        botao1.setBorderPainted(false);
+        botao1.setOpaque(false);
+        botao1.setContentAreaFilled(false); 
+        botao1.setFocusPainted(false); 
         panel.add(botao1);
-        
-        JLabel textobotao2= new JLabel("<html>Paladino:<br>Habilidade: + 50% de vida<br>Dano 4<br>Saúde 8<br>Defesa 6</html>");
-        textobotao2.setBounds(235, 390, 300, 100);
-        textobotao2.setFont(new Font("Serif", Font.TYPE1_FONT, 15 ));
-        panel.add(textobotao2);
-        botao2= new JButton(paladino);
-        botao2.setBackground(Color.WHITE);
-        botao2.setBounds(235,500,200,120);
+
+   
+        botao2.setBounds(230,450,200,50);
+        botao2.setFont(new Font("Arial", Font.BOLD, 28));
+        botao2.setBorderPainted(false);
+        botao2.setOpaque(false);
+        botao2.setContentAreaFilled(false); 
+        botao2.setFocusPainted(false); 
+        botao2.setBackground(Color.white);
         panel.add(botao2);
 
-        JLabel textobotao3= new JLabel("<html>Bárbaro:<br>Habilidade: + 50% de Defesa<br>Dano 7<br>Saúde 4<br>Defesa 7</html>");
-        textobotao3.setBounds(440, 390, 300, 100);
-        textobotao3.setFont(new Font("Serif", Font.TYPE1_FONT, 15 ));
-        panel.add(textobotao3);
-        botao3= new JButton(barbaro);
-        botao3.setBackground(Color.WHITE);
-        botao3.setBounds(440,500,200,120);
+      
+        botao3.setBounds(230,550,200,50);
+        botao3.setFont(new Font("Arial", Font.BOLD, 28));
+        botao3.setBorderPainted(false);
+        botao3.setOpaque(false);
+        botao3.setContentAreaFilled(false); 
+        botao3.setFocusPainted(false); 
+        botao3.setBackground(Color.white);
         panel.add(botao3);
+
+        
+        tela.add(panel);
 
         botao1.addActionListener(this);
         botao2.addActionListener(this);
         botao3.addActionListener(this);
+
+        setSize(700, 700);
+        setLocationRelativeTo(null);
+        setVisible(true);
+
     }
     public void actionPerformed(ActionEvent evento) {
-        if (evento.getSource() == botao1) {
-            Personagem soldado= new Soldado(10, 4, 4, "zz");
-            new TelaAtributos(soldado);
-        } else if (evento.getSource() == botao2) {
-            Personagem paladino= new Paladino(4, 6, 8, "zz");
-            new TelaAtributos(paladino);
-        } else if (evento.getSource() == botao3) {
-            Personagem barbaro= new Barbaro(7, 7, 4, "zz");
-            new TelaAtributos(barbaro);
+       if(evento.getSource()==botao1){
+        new SelecaoClasses();
+       }else if(evento.getSource()==botao2){
+        
+       }else if(evento.getSource()==botao3){
+        dispose();
+       }
         }
     }
-}
