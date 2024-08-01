@@ -4,23 +4,27 @@ import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 //JLabel: Exibe texto/imagens.
 //JPanel: Organiza e agrupa componentes.
 //JFrame: Janela principal da aplicação.
 
 
-public class TelaAtributos extends JFrame implements ChangeListener {
+public class TelaAtributos extends JFrame implements ChangeListener, ActionListener {
     private Container tela= getContentPane();
     private JPanel panel;
     private int pontosExtras=7;
-
-    JLabel textoPontos, ataqueTexto, defesaTexto, saudeTexto, inicioTexto;
-
-    JSlider sliderAtaque, sliderDefesa, sliderSaude;
+    private Personagem personagem;
+    private JButton botaoContinuar;
+    private JLabel textoPontos, ataqueTexto, defesaTexto, saudeTexto, inicioTexto;
+    private JSlider sliderAtaque, sliderDefesa, sliderSaude;
     private int ataqueInicial, saudeInicial, defesaInicial;
+
     public TelaAtributos(Personagem x){
         super("Dungeon Fighter");
+        this.personagem=x;
         panel=new FundoPainel("lib\\fundo2.jpg");
         panel.setLayout(null);
         ataqueInicial=x.getAtaque();
@@ -83,7 +87,18 @@ public class TelaAtributos extends JFrame implements ChangeListener {
         textoPontos.setFont(new Font("zzz", Font.TYPE1_FONT, 25 ));
         panel.add(textoPontos);
 
-      
+        botaoContinuar= new JButton("Confirmar");
+        botaoContinuar.setBounds(90, 320, 200, 50);
+        botaoContinuar.setFont(new Font("zzz", Font.TYPE1_FONT, 25 ));
+        botaoContinuar.setForeground(Color.RED);
+        botaoContinuar.setBorderPainted(false);
+        botaoContinuar.setOpaque(false);
+        botaoContinuar.setContentAreaFilled(false); 
+        botaoContinuar.setFocusPainted(false); 
+        botaoContinuar.addActionListener(this);
+        
+        panel.add(botaoContinuar);
+
         tela.add(panel);
         setSize(400, 400);
         setLocationRelativeTo(null); // Centraliza a janela na tela
@@ -105,5 +120,17 @@ public class TelaAtributos extends JFrame implements ChangeListener {
         }
         textoPontos.setText("Pontos sobrando: "+ (pontosExtras-pontosTotais));
        
+    }
+    
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == botaoContinuar) {
+            System.out.println("Botão Confirmar clicado");
+            personagem.setAtaque(sliderAtaque.getValue());
+            personagem.setDefesa(sliderDefesa.getValue());
+            personagem.setSaude(sliderSaude.getValue());
+            System.out.println("Instanciando Jogo"); 
+            new Jogo(); 
+            dispose(); 
+        }
     }
 }
