@@ -78,6 +78,7 @@ public class MainFrameApp extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent evento) {
        if(evento.getSource()==botao1){
         new SelecaoClasses();
+        dispose();
        }else if(evento.getSource()==botao2){
         
        }else if(evento.getSource()==botao3){

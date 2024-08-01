@@ -93,12 +93,15 @@ public class SelecaoClasses extends JFrame implements ActionListener {
         if (evento.getSource() == botao1) {
             Personagem soldado= new Soldado(10, 4, 4, "zz");
             new TelaAtributos(soldado);
+            dispose();
         } else if (evento.getSource() == botao2) {
             Personagem paladino= new Paladino(4, 6, 8, "zz");
             new TelaAtributos(paladino);
+            dispose();
         } else if (evento.getSource() == botao3) {
             Personagem barbaro= new Barbaro(7, 7, 4, "zz");
             new TelaAtributos(barbaro);
+            dispose();
         }
     }
 }
