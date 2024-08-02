@@ -1,3 +1,6 @@
+import classes.Thread1;
+import classes.Thread2;
+
 public class App {
     public static void main(String[] args) throws Exception {
         int [][]matriz= new int[5][2];
@@ -12,38 +15,8 @@ public class App {
         thread.start();
         thread2.start();
         thread.join();
-        System.out.println(thread.soma);
+        System.out.println("soma 1: "+ thread.soma);
+        System.out.println("soma 2: "+ thread2.soma);
     }
 }
 
-class Thread1 extends Thread{
-    int [][]vetor;
-    int soma;
-    public Thread1(int [][]vetor){
-        this.vetor=vetor;
-    }
-    public void run(){
-        for(int i=0; i<5; i++){
-            System.out.println(vetor[i][0]);
-            soma+=vetor[i][0];
-            try {
-                Thread.sleep(50); 
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-}
-class Thread2 extends Thread{
-    int [][]vetor;
-    Thread2(int [][]vetor){
-        this.vetor=vetor;
-    }
-    public void run(){
-        for(int i=0; i<5; i++){
-            System.out.println(vetor[i][1]);
-            
-        }
-    }
-    
-}
