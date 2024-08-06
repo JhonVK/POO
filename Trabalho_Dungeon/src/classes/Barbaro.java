@@ -15,5 +15,7 @@ public String getNomeclass(){
 public double getHab() {
     return this.defesaHab;
 }
-    
+public String getImagem() {
+    return "lib\\barbaro.png";
+}
 }

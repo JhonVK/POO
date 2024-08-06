@@ -9,6 +9,7 @@ public Personagem(int ataque, int defesa, int saude, String nome){
     this.defesa=defesa;
     this.saude=saude;
     this.nome=nome;
+
 }
 public abstract String getNomeclass();
 
@@ -33,4 +34,5 @@ int getSaude(){
 String getNome(){
     return this.nome;
 }
+abstract String getImagem();
 }

@@ -15,6 +15,12 @@ public double getHab(){
 public String getNomeclass(){
     return "Paladino";
 }
+
+
+public String getImagem() {
+    return "lib\\paladino.png";
+}
+
     
 }
 

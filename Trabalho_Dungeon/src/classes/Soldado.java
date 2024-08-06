@@ -16,5 +16,8 @@ public double getHab() {
 public String getNomeclass(){
     return "Soldado";
 }
+public String getImagem() {
+    return "lib\\soldado.png";
+}
     
 }

@@ -129,7 +129,7 @@ public class TelaAtributos extends JFrame implements ChangeListener, ActionListe
             personagem.setDefesa(sliderDefesa.getValue());
             personagem.setSaude(sliderSaude.getValue());
             System.out.println("Instanciando Jogo"); 
-            new Jogo(); 
+            new Jogo(personagem); 
             dispose(); 
         }
     }
