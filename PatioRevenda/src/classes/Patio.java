@@ -30,7 +30,7 @@ public class Patio {
         }
     }
     public static List<Caminhao> getCaminhoes() {
-        return new ArrayList<>(caminhoes); // Retorna uma cópia da lista para evitar modificações externas
+        return new ArrayList<>(caminhoes); 
     }
     public void imprimirCaminhoes() {
         if (caminhoes.isEmpty()) {
