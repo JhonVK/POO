@@ -19,8 +19,7 @@ public class MainFrameApp extends JFrame implements ActionListener {
 
         super("Dungeon Fighter");
         panel = new FundoPainel("lib\\fundo2.jpg");
-        panel.setLayout(null);
-        
+        panel.setLayout(null);        
 
         iconeJogo= new ImageIcon("lib\\logo3.png");
         imagem= new JLabel(iconeJogo);

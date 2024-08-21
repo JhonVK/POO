@@ -14,7 +14,6 @@ public class MainFrameApp extends JFrame implements ActionListener {
         panel=new JPanel();
         panel.setLayout(null);
         
-        
         botao1 = new JButton("Comprar");
         botao2 = new JButton("Vender");
         botao3 = new JButton("Patio");
@@ -34,6 +33,14 @@ public class MainFrameApp extends JFrame implements ActionListener {
         setSize(430, 180);
         setVisible(true);
         setLocationRelativeTo(null); 
+
+        //Descobri este tal de look and feel, achei legal usar ele e mudar um pouco a UI
+        try {
+            UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+            SwingUtilities.updateComponentTreeUI(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void actionPerformed(ActionEvent evento) {

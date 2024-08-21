@@ -41,7 +41,10 @@ public class VenderCaminhao extends JFrame implements ActionListener {
                 Patio patio = new Patio();
                 patio.venderCaminhao(id);
                 JOptionPane.showMessageDialog(this, "Caminhão vendido com sucesso.");
-            } catch (IdException e) {
+            }  catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "Por favor, insira um ID válido.", "Erro", JOptionPane.ERROR_MESSAGE);
+                
+            }catch (IdException e) {
                 JOptionPane.showMessageDialog(this, e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
             } 
         }
