@@ -102,6 +102,7 @@ public class Jogo extends JFrame implements ActionListener {
 
 
     }
+  
     private void setPosicoes(){
         Random gerador = new Random();
         imageHeroi= new ImageIcon(personagem.getImagem());
@@ -116,11 +117,11 @@ public class Jogo extends JFrame implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent evento) {
-        JButton clickedButton = (JButton) evento.getSource();
-        Point position = posicoesbotoes.get(clickedButton);
-        if (position != null) {
-            int i = position.x;
-            int j = position.y;
+        JButton botaoclickado = (JButton) evento.getSource();
+        Point posicao = posicoesbotoes.get(botaoclickado); //muito melhor que for (o(n^2)) hash map tem complexidade de o(1) para o get e o(n) no pior caso
+        if (posicao != null) {
+            int i = posicao.x;
+            int j = posicao.y;
             if (i == posiHeroix && j == posiHeroiy + 1) {
                 moveParaBaixo();
             } else if (i == posiHeroix && j == posiHeroiy - 1) {
