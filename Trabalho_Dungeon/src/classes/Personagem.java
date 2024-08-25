@@ -16,6 +16,9 @@ public abstract String getNomeclass();
 void setAtaque(int ataque){
     this.ataque=ataque;
 }
+void setDecreasevida(int decre){
+    this.saude-=decre;
+}
 void setDefesa(int defesa){
     this.defesa=defesa;
 }

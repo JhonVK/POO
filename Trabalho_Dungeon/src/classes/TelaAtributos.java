@@ -101,7 +101,7 @@ public class TelaAtributos extends JFrame implements ChangeListener, ActionListe
 
         tela.add(panel);
         setSize(400, 400);
-        setLocationRelativeTo(null); // Centraliza a janela na tela
+        setLocationRelativeTo(null); 
         setVisible(true);
 
     }
