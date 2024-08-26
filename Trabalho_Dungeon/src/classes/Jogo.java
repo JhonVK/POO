@@ -38,13 +38,13 @@ public class Jogo extends JFrame implements ActionListener {
         setVisible(true);
     }
     private void inicializaInfos(){
-        textoInfo = new JLabel("Ataque: "+personagem.getAtaque()+"Saúde: "+personagem.getSaude()+"Defesa: "+personagem.getDefesa());
-        textoInfo.setBounds(500, 500, 500, 50);
+        textoInfo = new JLabel("<html>Ataque: " + personagem.getAtaque() + "<br>Saúde: " + personagem.getSaude() + "<br>Defesa: " + personagem.getDefesa() + "</html>");
+        textoInfo.setBounds(50, 500, 500, 100);
         textoInfo.setFont(new Font("Serif", Font.TYPE1_FONT, 25 ));
-        textoInfo.setForeground(Color.WHITE);
+        textoInfo.setForeground(Color.white);
     }
     private void AtualizaInfos(){
-        textoInfo.setText(("Ataque: "+personagem.getAtaque()+"Saúde: "+personagem.getSaude()+"Defesa: "+personagem.getDefesa()));
+        textoInfo.setText(("<html>Ataque: " + personagem.getAtaque() + "<br>Saúde: " + personagem.getSaude() + "<br>Defesa: " + personagem.getDefesa() + "</html>"));
     }
     private void inicializaJogo() {
         painel = new FundoPainel("lib\\brick.jpg");
