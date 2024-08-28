@@ -20,6 +20,7 @@ public class Jogo extends JFrame implements ActionListener {
     private Container tela = getContentPane();
     private JPanel painel;
     private JButton[][] botoes;
+    private JButton botaoDica;
     private ImageIcon imageHeroi, imageMonstro, imageArmadilha, imageMonstrinhos;
     private JLabel textoInfo;
     
@@ -30,7 +31,9 @@ public class Jogo extends JFrame implements ActionListener {
         inicializaInfos();
         inicializaJogo();
         setPosicoes();
+        dicas();
 
+        tela.add(botaoDica);
         tela.add(textoInfo);
         tela.add(painel);
         setSize(1100, 650);
@@ -43,9 +46,18 @@ public class Jogo extends JFrame implements ActionListener {
         textoInfo.setFont(new Font("Serif", Font.TYPE1_FONT, 25 ));
         textoInfo.setForeground(Color.white);
     }
+    private void dicas(){
+   
+        botaoDica=new JButton("Dica ");
+        botaoDica.setBounds(300, 500, 200, 100);
+        botaoDica.setFont(new Font("Serif", Font.TYPE1_FONT, 25 ));
+        botaoDica.setForeground(Color.white);
+        botaoDica.addActionListener(this);
+    }
     private void AtualizaInfos(){
         textoInfo.setText(("<html>Ataque: " + personagem.getAtaque() + "<br>Saúde: " + personagem.getSaude() + "<br>Defesa: " + personagem.getDefesa() + "</html>"));
     }
+    
     private void inicializaJogo() {
         painel = new FundoPainel("lib\\brick.jpg");
         painel.setLayout(null);
@@ -127,7 +139,7 @@ public class Jogo extends JFrame implements ActionListener {
                 armadilhaImagem[posiArmadilhaX[i]][i] = true;
                 break;
             }else if(posiHeroix == posiMonstrinhosX[i] && posiHeroiy == i){
-                JOptionPane.showMessageDialog(this, "Você encontrou uma Monstrinho!", "Colisão", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Você encontrou um Monstro!", "Colisão", JOptionPane.INFORMATION_MESSAGE);
                 int ataque = gerador.nextInt(4);
                 personagem.setDecreasevida(ataque);
                 AtualizaInfos();
@@ -135,7 +147,9 @@ public class Jogo extends JFrame implements ActionListener {
                     new TelaGameOver("Game Over");
                     dispose();
                 }
-                monstrinhosImagem[posiMonstrinhosX[i]][i] = true;
+                monstrinhosImagem[posiMonstrinhosX[i]][i] = false;
+                botoes[posiMonstrinhosX[i]][i].setIcon(null);
+                posiMonstrinhosX[i] = 1000;
                 break;
 
             }
@@ -190,8 +204,20 @@ public class Jogo extends JFrame implements ActionListener {
         botoes[posiMonstrox][posiMonstroy].setIcon(imageMonstro);
     }
 
+
+    private void darDica() {
+        for (int j = 0; j < LARGURA; j++) {
+            if (posiArmadilhaX[j] == posiHeroix) {
+                botoes[posiHeroix][j].setIcon(imageArmadilha);
+            } 
+        }
+    }
+    
     public void actionPerformed(ActionEvent evento) {
         JButton botaoclickado = (JButton) evento.getSource();
+        if (evento.getSource() == botaoDica){
+            darDica();
+        }else{
         for (int i = 0; i < COMPRIMENTO; i++) {
             for (int j = 0; j < LARGURA; j++) {
                 if (botaoclickado == botoes[i][j]) {
@@ -208,5 +234,6 @@ public class Jogo extends JFrame implements ActionListener {
                 }
             }
         }
+    }
     }
 }
