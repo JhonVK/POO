@@ -2,22 +2,23 @@ package classes;
 
 public class Soldado extends Personagem implements IntefaceHab {
 
-private double danoHab;
+private int danoHab;
 
 public Soldado(int ataque, int defesa, int saude, String nome){
     super(ataque, defesa, saude, nome);
-    this.danoHab=0.5;
+    this.danoHab=2;
 }
 
 
-public void getHab() {
-    this.ataque=this.ataque*this.ataque;
+public String getHab() {
+    return "Habilidade Ataque +100%";
 }
+
 public String getNomeclass(){
     return "Soldado";
 }
 public void setHab(){
-    this.saude=this.saude*this.saude;
+    this.saude=this.saude*this.danoHab;
 }
 
 public String getImagem() {

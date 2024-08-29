@@ -59,7 +59,7 @@ public class JogoDebug extends JFrame implements ActionListener {
     private void AtualizaInfos() {
         textoInfo.setText("<html>Ataque: " + personagem.getAtaque() + "<br>Saúde: " + personagem.getSaude() + "<br>Defesa: " + personagem.getDefesa() + "</html>");
     }
-
+    
     private void inicializaJogo() {
         painel = new FundoPainel("lib\\brick.jpg");
         painel.setLayout(null);

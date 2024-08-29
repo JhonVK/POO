@@ -12,8 +12,8 @@ public String getNomeclass(){
     return "Barbaro";
 }
 
-public void getHab() {
-    this.defesa=this.defesa*this.defesaHab;
+public String getHab() {
+    return "Habilidade Defesa +100%";
 }
 
 public void setHab(){
