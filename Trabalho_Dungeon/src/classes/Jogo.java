@@ -34,6 +34,7 @@ public class Jogo extends JFrame implements ActionListener {
         setPosicoes();
         dicas();
 
+        tela.add(botaoHab);
         tela.add(botaoDica);
         tela.add(textoInfo);
         tela.add(painel);
@@ -55,6 +56,12 @@ public class Jogo extends JFrame implements ActionListener {
         botaoDica.setFont(new Font("Serif", Font.TYPE1_FONT, 25 ));
         botaoDica.setForeground(Color.black);
         botaoDica.addActionListener(this);
+
+        botaoHab = new JButton("Habilidade");
+        botaoHab.setBounds(450, 500, 200, 100);
+        botaoHab.setFont(new Font("Serif", Font.TYPE1_FONT, 25 ));
+        botaoHab.setForeground(Color.black);
+        botaoHab.addActionListener(this);
     }
 
     private void AtualizaInfos(){
@@ -121,10 +128,15 @@ public class Jogo extends JFrame implements ActionListener {
             int ataque =monstro.getAtaque();
             ataque=ataque-personagem.getDefesa();
             personagem.setDecreasevida(ataque);
-            AtualizaInfos();
+            monstro.setDecreasevida(personagem.getAtaque());
             if(personagem.getSaude()<=0){
                 new TelaGameOver("Game Over ");
                 dispose();
+            }else if(monstro.getSaude()<=0){
+                JOptionPane.showMessageDialog(this, "Você derrotou o monstro!", "Vitória", JOptionPane.INFORMATION_MESSAGE);
+                dispose();
+            }else{
+                AtualizaInfos();
             }
             JOptionPane.showMessageDialog(this, "Você encontrou o monstro!", "Colisão", JOptionPane.INFORMATION_MESSAGE);
             
@@ -132,7 +144,8 @@ public class Jogo extends JFrame implements ActionListener {
         for (int i = 0; i < COMPRIMENTO; i++) {
             if (posiHeroix == posiArmadilhaX[i] && posiHeroiy == i) {
                 JOptionPane.showMessageDialog(this, "Você encontrou uma armadilha", "Colisão", JOptionPane.INFORMATION_MESSAGE);
-                int ataque = gerador.nextInt(4);
+                Personagem armadilha=new Armadilha(10, 6, 6, "Armadilha");
+                int ataque =armadilha.getAtaque();
                 ataque=ataque-personagem.getDefesa();
                 personagem.setDecreasevida(ataque);
                 AtualizaInfos();
@@ -218,11 +231,16 @@ public class Jogo extends JFrame implements ActionListener {
         }
     }NUM_DICAS++;
 }
+    private void darHab() {
+    
+}
 
     public void actionPerformed(ActionEvent evento) {
         JButton botaoclickado = (JButton) evento.getSource();
         if (evento.getSource() == botaoDica){
             darDica();
+        }else if(evento.getSource() == botaoHab){
+            darHab();
         }else{
         for (int i = 0; i < COMPRIMENTO; i++) {
             for (int j = 0; j < LARGURA; j++) {
