@@ -21,7 +21,4 @@ public class Monstro extends Personagem{
         return "lib\\monster.png";
     }
 
-
-    
-
 }

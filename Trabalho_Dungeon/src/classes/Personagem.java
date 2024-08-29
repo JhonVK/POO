@@ -1,7 +1,9 @@
 package classes;
 public abstract class Personagem{
 
-private int ataque, defesa, saude;
+protected int ataque;
+protected int defesa;
+protected int saude;
 private String nome;
 
 public Personagem(int ataque, int defesa, int saude, String nome){
@@ -9,8 +11,8 @@ public Personagem(int ataque, int defesa, int saude, String nome){
     this.defesa=defesa;
     this.saude=saude;
     this.nome=nome;
-
 }
+
 public abstract String getNomeclass();
 
 void setAtaque(int ataque){
@@ -27,6 +29,9 @@ void setSaude(int saude){
 }
 int getAtaque(){
     return this.ataque;
+}
+void setHab(){
+    
 }
 int getDefesa(){
     return this.defesa;

@@ -9,13 +9,15 @@ public Paladino(int ataque, int defesa, int saude, String nome){
     this.defesaHab=0.5;
 }
 
-public double getHab(){
-    return this.defesaHab;
+public void getHab() {
+    this.saude=this.saude*this.saude;
 }
 public String getNomeclass(){
     return "Paladino";
 }
-
+public void setHab(){
+    this.saude=this.saude*this.saude;
+}
 public String getImagem() {
     return "lib\\paladino.png";
 }

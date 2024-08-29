@@ -10,12 +10,16 @@ public Soldado(int ataque, int defesa, int saude, String nome){
 }
 
 
-public double getHab() {
-    return this.danoHab;
+public void getHab() {
+    this.ataque=this.ataque*this.ataque;
 }
 public String getNomeclass(){
     return "Soldado";
 }
+public void setHab(){
+    this.saude=this.saude*this.saude;
+}
+
 public String getImagem() {
     return "lib\\soldado.png";
 }

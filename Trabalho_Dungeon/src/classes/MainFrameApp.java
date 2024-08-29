@@ -75,13 +75,14 @@ public class MainFrameApp extends JFrame implements ActionListener {
 
     }
     public void actionPerformed(ActionEvent evento) {
-       if(evento.getSource()==botao1){
-        new SelecaoClasses();
-        dispose();
-       }else if(evento.getSource()==botao2){
-        
-       }else if(evento.getSource()==botao3){
-        dispose();
-       }
+        if (evento.getSource() == botao1) {
+            new SelecaoClasses();
+            dispose();
+        } else if (evento.getSource() == botao2) {        
+            Personagem soldado= new Soldado(10, 4, 4, "zz");
+            new JogoDebug(soldado);
+        } else if (evento.getSource() == botao3) {
+            dispose();
+        }
         }
     }
