@@ -26,14 +26,15 @@ public class MainFrameApp extends JFrame implements ActionListener {
         imagem.setBounds(160, 0, 350, 320);
         panel.add(imagem);
 
+
         botao1=new JButton("Jogar");
         botao1.setForeground(Color.RED);
-        botao2=new JButton("DEBUG");
+        botao2=new JButton("Debug");
         botao2.setForeground(Color.RED);
         botao3=new JButton("Sair");
         botao3.setForeground(Color.RED);
-
      
+
         botao1.setBounds(230,450,200,50);
         botao1.setFont(new Font("Arial", Font.BOLD, 28));
         botao1.setBorderPainted(false);
@@ -79,8 +80,8 @@ public class MainFrameApp extends JFrame implements ActionListener {
             new SelecaoClasses();
             dispose();
         } else if (evento.getSource() == botao2) {        
-            Personagem soldado= new Soldado(10, 4, 4, "zz");
-            new JogoDebug(soldado);
+            Personagem paladino= new Paladino(20, 1, 20, "zz");
+            new JogoDebug(paladino);
         } else if (evento.getSource() == botao3) {
             dispose();
         }

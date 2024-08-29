@@ -17,11 +17,11 @@ public class Jogo extends JFrame implements ActionListener {
     private Random gerador = new Random();
     private int[] posiArmadilhaX, posiMonstrinhosX;
     private int posiHeroix, posiHeroiy, posiMonstrox, posiMonstroy;
-    private Personagem personagem;
+    private Personagem personagem, monstro;
     private Container tela = getContentPane();
     private JPanel painel;
     private JButton[][] botoes;
-    private JButton botaoDica, botaoHab;
+    private JButton botaoDica;
     private ImageIcon imageHeroi, imageMonstro, imageArmadilha, imageMonstrinhos;
     private JLabel textoInfo;
     
@@ -29,12 +29,13 @@ public class Jogo extends JFrame implements ActionListener {
     public Jogo(Personagem personagem) {
         super("Dungeon Fighter");
         this.personagem = personagem;
+        monstro=new Monstro(10, 6, 15, "Monstro");
+        personagem.setHab();
         inicializaInfos();
         inicializaJogo();
         setPosicoes();
         dicas();
 
-        tela.add(botaoHab);
         tela.add(botaoDica);
         tela.add(textoInfo);
         tela.add(painel);
@@ -57,11 +58,6 @@ public class Jogo extends JFrame implements ActionListener {
         botaoDica.setForeground(Color.black);
         botaoDica.addActionListener(this);
 
-        botaoHab = new JButton("Habilidade");
-        botaoHab.setBounds(450, 500, 200, 100);
-        botaoHab.setFont(new Font("Serif", Font.TYPE1_FONT, 25 ));
-        botaoHab.setForeground(Color.black);
-        botaoHab.addActionListener(this);
     }
 
     private void AtualizaInfos(){
@@ -118,50 +114,56 @@ public class Jogo extends JFrame implements ActionListener {
         posiHeroix = novoX;
         posiHeroiy = novoY;
         botoes[posiHeroix][posiHeroiy].setIcon(imageHeroi);
+        botoes[posiMonstrox][posiMonstroy].setIcon(imageMonstro);
         atualArmadilhas();
         verificaColisao();
     }
 
     private void verificaColisao() {
         if (posiHeroix == posiMonstrox && posiHeroiy == posiMonstroy) {
-            Personagem monstro=new Monstro(10, 6, 6, "Monstro");
-            int ataque =monstro.getAtaque();
-            ataque=ataque-personagem.getDefesa();
-            personagem.setDecreasevida(ataque);
-            monstro.setDecreasevida(personagem.getAtaque());
-            if(personagem.getSaude()<=0){
+        
+            int ataqueMonstro = monstro.getAtaque();
+            int defesaPersonagem = personagem.getDefesa();
+            int danoPersonagem = ataqueMonstro - defesaPersonagem;
+            personagem.setDecreasevida(danoPersonagem);
+    
+          
+            int ataquePersonagem = personagem.getAtaque();
+            monstro.setDecreasevida(ataquePersonagem);
+    
+            if (personagem.getSaude() <= 0) {
                 new TelaGameOver("Game Over ");
                 dispose();
-            }else if(monstro.getSaude()<=0){
+            } else if (monstro.getSaude() <= 0) {
                 JOptionPane.showMessageDialog(this, "Você derrotou o monstro!", "Vitória", JOptionPane.INFORMATION_MESSAGE);
                 dispose();
-            }else{
+            } else {
                 AtualizaInfos();
+                botoes[posiMonstrox][posiMonstroy].setIcon(imageMonstro);
             }
-            JOptionPane.showMessageDialog(this, "Você encontrou o monstro!", "Colisão", JOptionPane.INFORMATION_MESSAGE);
-            
         }
+    
         for (int i = 0; i < COMPRIMENTO; i++) {
             if (posiHeroix == posiArmadilhaX[i] && posiHeroiy == i) {
                 JOptionPane.showMessageDialog(this, "Você encontrou uma armadilha", "Colisão", JOptionPane.INFORMATION_MESSAGE);
-                Personagem armadilha=new Armadilha(10, 6, 6, "Armadilha");
-                int ataque =armadilha.getAtaque();
-                ataque=ataque-personagem.getDefesa();
+                Personagem armadilha = new Armadilha(10, 6, 6, "Armadilha");
+                int ataque = armadilha.getAtaque();
+                ataque = ataque - personagem.getDefesa();
                 personagem.setDecreasevida(ataque);
                 AtualizaInfos();
-                if(personagem.getSaude()<=0){
+                if (personagem.getSaude() <= 0) {
                     new TelaGameOver("Game Over");
                     dispose();
                 }
                 armadilhaImagem[posiArmadilhaX[i]][i] = true;
                 break;
-            }else if(posiHeroix == posiMonstrinhosX[i] && posiHeroiy == i){
+            } else if (posiHeroix == posiMonstrinhosX[i] && posiHeroiy == i) {
                 botoes[posiMonstrinhosX[i]][i].setIcon(imageMonstrinhos);
                 JOptionPane.showMessageDialog(this, "Você encontrou um Monstro!", "Colisão", JOptionPane.INFORMATION_MESSAGE);
                 int ataque = gerador.nextInt(4);
                 personagem.setDecreasevida(ataque);
                 AtualizaInfos();
-                if(personagem.getSaude()<=0){
+                if (personagem.getSaude() <= 0) {
                     new TelaGameOver("Game Over");
                     dispose();
                 }
@@ -169,11 +171,10 @@ public class Jogo extends JFrame implements ActionListener {
                 botoes[posiMonstrinhosX[i]][i].setIcon(imageHeroi);
                 posiMonstrinhosX[i] = 1000;
                 break;
-
             }
         }
     }
-
+    
     private void atualArmadilhas() {
         for (int i = 0; i < COMPRIMENTO; i++) {
             for (int j = 0; j < LARGURA; j++) {
@@ -203,12 +204,14 @@ public class Jogo extends JFrame implements ActionListener {
         for (int i = 0; i < COMPRIMENTO; i++) {
             int posiArma;
             int posiMonstrinho;
-            do{
-            posiArma=gerador.nextInt(COMPRIMENTO);
-            posiMonstrinho=gerador.nextInt(COMPRIMENTO);
-            }while(posiArma==posiMonstrinho);
+            do {
+                posiArma = gerador.nextInt(COMPRIMENTO);
+                posiMonstrinho = gerador.nextInt(COMPRIMENTO);
+            } while (posiArma == posiMonstrinho || 
+                     (posiArma == posiMonstrox && i == posiMonstroy) || 
+                     (posiMonstrinho == posiMonstrox && i == posiMonstroy));
             posiArmadilhaX[i] = posiArma;
-            posiMonstrinhosX[i]= posiMonstrinho;
+            posiMonstrinhosX[i] = posiMonstrinho;
         }
 
         for (int i = 0; i < COMPRIMENTO; i++) {
@@ -231,17 +234,13 @@ public class Jogo extends JFrame implements ActionListener {
         }
     }NUM_DICAS++;
 }
-    private void darHab() {
     
-}
-
     public void actionPerformed(ActionEvent evento) {
         JButton botaoclickado = (JButton) evento.getSource();
         if (evento.getSource() == botaoDica){
             darDica();
-        }else if(evento.getSource() == botaoHab){
-            darHab();
         }else{
+
         for (int i = 0; i < COMPRIMENTO; i++) {
             for (int j = 0; j < LARGURA; j++) {
                 if (botaoclickado == botoes[i][j]) {

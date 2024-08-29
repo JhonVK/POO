@@ -14,7 +14,6 @@ public class Monstro extends Personagem{
         return "Monstro feio";
     }
     
-
     public String getImagem() {
         return "lib\\monster.png";
     }

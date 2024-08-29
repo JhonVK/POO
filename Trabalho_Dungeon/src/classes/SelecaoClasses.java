@@ -36,7 +36,7 @@ public class SelecaoClasses extends JFrame implements ActionListener {
 
         tela.add(panel);
         setSize(650, 700);
-        setLocationRelativeTo(null); // Centraliza a janela na tela
+        setLocationRelativeTo(null); 
         setVisible(true);
     }
     private void addBotoes(){
@@ -45,7 +45,7 @@ public class SelecaoClasses extends JFrame implements ActionListener {
         paladino= new ImageIcon("lib\\paladino.png");
         barbaro= new ImageIcon("lib\\barbaro.png");
 
-        textobotao1 = new JLabel("<html>Soldado:<br>+50% de dano<br>Dano 10<br>Saúde 4<br>Defesa 4</html>");
+        textobotao1 = new JLabel("<html>Soldado:<br>+100% de dano<br>Dano 10<br>Saúde 4<br>Defesa 0</html>");
         textobotao1.setBounds(30, 290, 300, 200);
         textobotao1.setFont(new Font("Serif", Font.TYPE1_FONT, 25 ));
         textobotao1.setForeground(Color.RED);
@@ -58,7 +58,7 @@ public class SelecaoClasses extends JFrame implements ActionListener {
         botao1.setFocusPainted(false); 
         panel.add(botao1);
         
-        textobotao2= new JLabel("<html>Paladino:<br>+50% de vida<br>Dano 4<br>Saúde 8<br>Defesa 6</html>");
+        textobotao2= new JLabel("<html>Paladino:<br>+100% de vida<br>Dano 4<br>Saúde 8<br>Defesa 1</html>");
         textobotao2.setBounds(235, 290, 300, 200);
         textobotao2.setFont(new Font("Serif", Font.TYPE1_FONT, 25 ));
         textobotao2.setForeground(Color.RED);
@@ -71,7 +71,7 @@ public class SelecaoClasses extends JFrame implements ActionListener {
         botao2.setFocusPainted(false); 
         panel.add(botao2);
 
-        textobotao3= new JLabel("<html>Bárbaro:<br>+50% de Defesa<br>Dano 7<br>Saúde 4<br>DEFESA 7</html>");
+        textobotao3= new JLabel("<html>Bárbaro:<br>+100% de Defesa<br>Dano 7<br>Saúde 4<br>Defesa 2</html>");
         textobotao3.setBounds(440, 290, 300, 200);
         textobotao3.setFont(new Font("Serif", Font.TYPE1_FONT, 25 ));
         textobotao3.setForeground(Color.RED);
@@ -91,15 +91,15 @@ public class SelecaoClasses extends JFrame implements ActionListener {
     }
     public void actionPerformed(ActionEvent evento) {
         if (evento.getSource() == botao1) {
-            Personagem soldado= new Soldado(10, 4, 4, "zz");
+            Personagem soldado= new Soldado(10, 0, 4, "zz");
             new TelaAtributos(soldado);
             dispose();
         } else if (evento.getSource() == botao2) {
-            Personagem paladino= new Paladino(4, 6, 8, "zz");
+            Personagem paladino= new Paladino(4, 1, 8, "zz");
             new TelaAtributos(paladino);
             dispose();
         } else if (evento.getSource() == botao3) {
-            Personagem barbaro= new Barbaro(7, 7, 4, "zz");
+            Personagem barbaro= new Barbaro(7, 2, 4, "zz");
             new TelaAtributos(barbaro);
             dispose();
         }
