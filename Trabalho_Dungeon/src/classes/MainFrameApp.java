@@ -85,5 +85,5 @@ public class MainFrameApp extends JFrame implements ActionListener {
         } else if (evento.getSource() == botao3) {
             dispose();
         }
-        }
     }
+}

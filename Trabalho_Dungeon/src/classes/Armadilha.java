@@ -13,7 +13,6 @@ public class Armadilha extends Personagem {
         return "armadilha";
     }
 
-
     public String getImagem() {
         return "lib\\trap.png";
     }
